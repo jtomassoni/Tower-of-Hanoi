@@ -1,3 +1,72 @@
-html{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+html {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+}
+
+.container {
+	text-align: justify;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+h1 {
+	text-align: center;
+	position: relative;
+}
+h2 {
+	text-align: center;
+	margin: 0px;
+	background-color: darkorchid;
+}
+
+.gameBoard {
+	background-color: darkgray;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	min-height: 40vh;
+	min-width: 40vw;
+}
+.stacks {
+    text-align: center;
+    
+}
+.poles{
+    background-color: white;
+    width: 10px;
+    height: 75%;
+    margin: 10% auto 0 ;
+    
+}
+#stackOne {
+    color: blue;
+}
+
+#stackTwo {
+	color: green;
+}
+#stackThree {
+	color: red;
+}
+
+
+footer ul {
+	margin: 0;
+	text-align: right;
+	list-style-type: none;
+	background-color: grey;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+footer ul li {
+	display: inline;
+}
+footer ul li a {
+	color: white;
+}
+
+footer ul li a:hover {
+	font-size: 1.2rem;
+}
+button {
+	min-width: 100%;
 }
