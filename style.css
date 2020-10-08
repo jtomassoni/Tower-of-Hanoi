@@ -38,3 +38,8 @@ footer ul li {
     padding: 5px;
     margin 10px;
 }
+
+.selected{
+    color: white;
+    background-color: dimgray;
+}
