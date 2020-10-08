@@ -1,72 +1,40 @@
-html {
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-		'Lucida Sans', Arial, sans-serif;
+body {
+	text-align: center;
+}
+#largeDisk {
+min-width: 75%;
+}
+#mediumDisk {
+	min-width: 50%;
+}
+#smallDisk {
+	min-width: 25%
+}
+.resetButton {
+    margin: 10px;
+}
+.allTowers{
+background-color: darkslategray;
+display: grid;
+grid-template-columns: 100px 1fr 1fr 1fr 100px;
+grid-template-rows: 10vh;
+}
+.stacksButtons{
+    margin: 10px;
 }
 
-.container {
-	text-align: justify;
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-bottom: 20px;
-}
-h1 {
-	text-align: center;
-	position: relative;
-}
-h2 {
-	text-align: center;
-	margin: 0px;
-	background-color: darkorchid;
-}
-
-.gameBoard {
-	background-color: darkgray;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	min-height: 40vh;
-	min-width: 40vw;
-}
-.stacks {
-    text-align: center;
+.diskButtons button {
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 50%;
     
 }
-.poles{
-    background-color: white;
-    width: 10px;
-    height: 75%;
-    margin: 10% auto 0 ;
-    
-}
-#stackOne {
-    color: blue;
-}
 
-#stackTwo {
-	color: green;
-}
-#stackThree {
-	color: red;
-}
-
-
-footer ul {
-	margin: 0;
-	text-align: right;
-	list-style-type: none;
-	background-color: grey;
-	padding-bottom: 10px;
-	padding-top: 10px;
-}
 footer ul li {
-	display: inline;
-}
-footer ul li a {
-	color: white;
-}
-
-footer ul li a:hover {
-	font-size: 1.2rem;
-}
-button {
-	min-width: 100%;
+    list-style-type: none;
+    display: inline;
+    float: right;
+    padding: 5px;
+    margin 10px;
 }
