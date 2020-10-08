@@ -12,7 +12,7 @@ let moveToA = document.querySelector('#moveToA');
 let moveToB = document.querySelector('#moveToB');
 let moveToC = document.querySelector('#moveToC');
 let divButtons = document.querySelector('.diskButtons');
-// console.log(divButtons);
+console.log(divButtons);
 
 playerMessage.innerText = 'Welcome to Tower of Hanoi.  Rules are rules';
 let winningSolution = [smallDisk, mediumDisk, largeDisk];
@@ -24,14 +24,31 @@ towerC = [];
 let currentDisk = null;
 
 divButtons.addEventListener('click', (event) => {
-	currentDisk = event;
-	playerMessage.innerText = `You've selected Disk ${currentDisk.target.value}, now select a tower to place it below.`;
-	console.log(currentDisk.target.classList.add('selected'));
+	console.log(event.target.id);
+	if (event.target.id != 'noClick') {
+		currentDisk = event;
+		playerMessage.innerText = `You've selected Disk ${currentDisk.target.value}, now select a tower to place it below.`;
+		currentDisk.target.classList.toggle('selected');
+	}
 });
 
 let checkTower = null;
+
 stacksButtons.addEventListener('click', (event) => {
-	console.log(event);
+	// console.log(event);
 	checkTower = event;
-	//if the tower has a value in index[0] that's bigger than
+	currentDisk.target.classList.remove('selected');
 });
+
+resetButton.addEventListener('click', (event) => {
+	// console.log(event);
+	playerMessage.innerText = 'Welcome to Tower of Hanoi.  Rules are rules';
+	console.log(divButtons);
+	// divButtons.classList.remove('selected');
+});
+
+// const removeSelections = () => {
+// currentDisk.target.classList.remove('selected');
+// playerMessage.innerText =
+
+// }
