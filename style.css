@@ -1,3 +1,59 @@
-html{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+body {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+#largeDisk {
+min-width: 75%;
+min-height: 25px;
+display: block;
+color: blue;
+}
+#mediumDisk {
+    min-width: 50%;
+    min-height: 25px;
+    display: block;
+    color: red;
+
+}
+#smallDisk {
+    min-width: 25%;
+    min-height: 25px;
+    display: block;
+    color: green;
+
+}
+.resetButton {
+    margin: 10px;
+}
+.allTowers{
+background-color: darkslategray;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+}
+#moveToA, #moveToB, #moveToC{
+    font-size: 1.5em;
+    margin: 15px auto;
+}
+.diskButtons button {
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    
+}
+.isHidden{
+    display:none;
+}
+
+footer ul li {
+    font-size: .5rem;
+    list-style-type: none;
+    display: inline;
+    float: right;
+    padding: 5px;
+    margin 10px;
+}
+
+
+.selected{
+   background-color: darkblue;
