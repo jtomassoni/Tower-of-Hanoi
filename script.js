@@ -20,6 +20,7 @@ smallDisk.addEventListener('click', (event) => {
 	if (parent.childNodes[0].id === 'smallDisk') {
 		currentDisk = event.target;
 		playerMessage.innerText = `Valid Selection: Move it to another tower`;
+		smallDisk.classList.toggle('selected');
 	} else {
 		playerMessage.innerHTML = `Invalid Selection:</br></br>You may only move the <strong>top</strong> disk.</br>  You may only move <strong>one</strong> disk at a time.</br>  <strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>`;
 		currentDisk = null;
@@ -31,6 +32,7 @@ mediumDisk.addEventListener('click', (event) => {
 	if (parent.childNodes[0].id === 'mediumDisk') {
 		currentDisk = event.target;
 		playerMessage.innerText = `Valid Selection: Move it to another tower`;
+		mediumDisk.classList.toggle('selected');
 	} else {
 		playerMessage.innerHTML = `Invalid Selection:</br></br>You may only move the <strong>top</strong> disk.</br>  You may only move <strong>one</strong> disk at a time.</br>  <strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>`;
 		currentDisk = null;
@@ -42,6 +44,7 @@ largeDisk.addEventListener('click', (event) => {
 	if (parent.childNodes[0].id === 'largeDisk') {
 		currentDisk = event.target;
 		playerMessage.innerText = `Valid Selection: Move it to another tower`;
+		largeDisk.classList.toggle('selected');
 	} else {
 		playerMessage.innerHTML = `Invalid Selection:</br></br>You may only move the <strong>top</strong> disk.</br>  You may only move <strong>one</strong> disk at a time.</br>  <strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>`;
 		currentDisk = null;
@@ -54,7 +57,10 @@ moveToA.addEventListener('click', (event) => {
 		playerMessage.innerHTML =
 			'Select the next disk.  Make sure it is on <em>top</em> of the tower.';
 		moveCounter.innerText = counter;
+
+		currentDisk.classList.toggle('selected');
 		counter++;
+		currentDisk = null;
 	}
 });
 moveToB.addEventListener('click', (event) => {
@@ -63,7 +69,9 @@ moveToB.addEventListener('click', (event) => {
 		playerMessage.innerHTML =
 			'Select the next disk.  Make sure it is on <em>top</em> of the tower.';
 		moveCounter.innerText = counter;
+		currentDisk.classList.toggle('selected');
 		counter++;
+		currentDisk = null;
 	}
 });
 moveToC.addEventListener('click', (event) => {
@@ -72,19 +80,17 @@ moveToC.addEventListener('click', (event) => {
 		playerMessage.innerHTML =
 			'Select the next disk.  Make sure it is on <em>top</em> of the tower.';
 		moveCounter.innerText = counter;
+		currentDisk.classList.toggle('selected');
 		counter++;
+		currentDisk = null;
 	}
 });
-//resets the game to start over. NEEDS to do better
 resetButton.addEventListener('click', (event) => {
-	playerMessage.innerHTML = `Welcome to Tower of Hanoi.</br> Move the disks from Tower A to Tower C.  You may only move the <strong>top</strong> disk.</br>  You may only move <strong>one</strong> disk at a time.</br>  <strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>`;
-	//moves disks back to towerA
+	playerMessage.innerHTML = `...maybe do better this time?`;
 	towerA.prepend(largeDisk);
 	towerA.prepend(mediumDisk);
 	towerA.prepend(smallDisk);
-	//removes the class that indicates the selected disk graphically
-	currentDisk.target.classList.remove('selected');
-	//sets the current disk selection to null
+	currentDisk.classList.toggle('selected');
 	currentDisk = null;
 });
 

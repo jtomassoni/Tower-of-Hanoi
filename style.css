@@ -2,6 +2,9 @@ body {
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.introMessage {
+    border-bottom: 1px solid;
+}
 #largeDisk {
 min-width: 75%;
 min-height: 25px;
