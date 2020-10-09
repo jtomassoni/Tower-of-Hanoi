@@ -30,6 +30,9 @@ grid-template-rows: 10vh;
     top: 50%;
     
 }
+.isHidden{
+    display:none;
+}
 
 footer ul li {
     list-style-type: none;
