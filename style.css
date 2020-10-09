@@ -5,17 +5,18 @@ body {
 .disks{
     background-color: green;
 }
-#disk3 {
+#largeDisk {
 min-width: 75%;
 min-height: 25px;
 
+
 }
-#disk2 {
+#mediumDisk {
     min-width: 50%;
     min-height: 25px;
 
 }
-#disk1 {
+#smallDisk {
     min-width: 25%;
     min-height: 25px;
 
@@ -26,7 +27,7 @@ min-height: 25px;
 .allTowers{
 background-color: darkslategray;
 display: grid;
-grid-template-columns: 100px 1fr 1fr 1fr 100px;
+grid-template-columns: 1fr 1fr 1fr;
 grid-template-rows: 10vh;
 }
 .stacksButtons{
@@ -45,12 +46,14 @@ grid-template-rows: 10vh;
 }
 
 footer ul li {
+    font-size: .5rem;
     list-style-type: none;
     display: inline;
     float: right;
     padding: 5px;
     margin 10px;
 }
+
 
 .selected{
    background-color: darkblue;

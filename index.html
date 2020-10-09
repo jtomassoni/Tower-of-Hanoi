@@ -11,26 +11,28 @@
 	<body>
 		<h1>Tower of Hanoi</h1>
 		<div class="container">
-			<h2>Total Moves:<span id="moveCounter"></span></h2>
+			<h2>Total Moves:<span id="moveCounter"> 0</span></h2>
 
 			<div class="gameBoard">
-				<div class="playerMessage">playerMessage</div>
-				<div class="isHidlden" class="stacksButtons">
-					<button value="1" id="moveToA">Move to Tower A</button>
-					<button value="2" id="moveToB">Move to Tower B</button>
-					<button value="3" id="moveToC">Move to Tower C</button>
+				<div class="playerMessage">Welcome to Tower of Hanoi. Rules are rules.
 				</div>
+
+				<div class="isHidJTden" class="movementButtons">
+					<button id="moveToA">Move to Tower A</button>
+					<button id="moveToB">Move to Tower B</button>
+					<button id="moveToC">Move to Tower C</button>
+				</div>
+
 				<div class="allTowers">
-					<div class="towers" id="towerA"></div>
-					<div id="noClick" class="diskButtons">
-					</div>
+					<div class="towers" id="towerA"><button id="smallDisk">smallDisk</button><button id="mediumDisk">mediumDisk</button><button id="largeDisk">largeDisk</button></div>
+
 					<div class="towers" id="towerB"></div>
-					<div class="diskButtons"></div>
 					<div class="towers" id="towerC"></div>
-					<div class="diskButtons"></div>
 				</div>
+
 				<button class="resetButton"><h3>Start New Game!</h3></button>
 			</div>
+		</div>
 			<footer>
 				<ul>
 					<li><a href="#">Contact</a></li>
@@ -38,6 +40,5 @@
 					<li><a href="#">Careers</a></li>
 				</ul>
 			</footer>
-		</div>
 	</body>
 </html>
