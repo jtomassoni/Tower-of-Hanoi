@@ -1,6 +1,7 @@
 let towerA = document.querySelector('#towerA');
 let towerB = document.querySelector('#towerB');
 let towerC = document.querySelector('#towerC');
+let towers = document.querySelector('.allTowers');
 let smallDisk = document.querySelector('#smallDisk');
 let mediumDisk = document.querySelector('#mediumDisk');
 let largeDisk = document.querySelector('#largeDisk');
@@ -14,50 +15,57 @@ let diskButtons = document.querySelector('.diskButtons');
 let moveCounter = document.querySelector('#moveCounter');
 
 let currentDisk = null;
-const startingCondition = [{ value: 1 }, { value: 2 }, { value: 3 }];
-// console.log(towerA);
 //make sure the disk is at the 0 of the nodeList
-console.log(towerB.childNodes)
-
+// console.log(towerB.childNodes)
+// console.log(towers.childNodes);
+//when i click on the small disk, check to see if it's if its in the 0 index of the current the parent nodes' children.
 smallDisk.addEventListener('click', (event) => {
-	currentDisk = event.target;
-	console.log(currentDisk.parentElement)
-	// console.log(currentDisk);
+	const parent = event.target.parentElement;
+	// console.log(parent)
+	// console.log(parent.childNodes);
+	if (parent.childNodes[0].id === 'smallDisk') {
+		currentDisk = event.target;
+	} else {
+		playerMessage.innerText = `You have selected${parent.childNodes[0].id} You are not permitted to move disks unless they are on top of the stack.  Please make another selection.`;
+		currentDisk = null;
+	}
 });
 mediumDisk.addEventListener('click', (event) => {
+	const parent = event.target.parentElement;
+	console.log(parent);
 	currentDisk = event.target;
-	console.log(currentDisk);
-	
+	// console.log(currentDisk);
 });
 largeDisk.addEventListener('click', (event) => {
+	const parent = event.target.parentElement;
+	console.log(parent);
 	currentDisk = event.target;
-	console.log(currentDisk);
+	// console.log(currentDisk);
 });
-moveToA.addEventListener('click', (event) => {
-	const parent = currentDisk.parentElement;
-	towerA.prepend(currentDisk);
-	let var1 = towerA.childNodes[0].id;
-	console.log(var1); //returns "smallDisk"
-	console.log(currentDisk.id); //returns "smallDisk"
-	if (var1 === currentDisk.id) {
-		playerMessage.innerText = `You've selected ${currentDisk.id}, that is currently in Tower A.  Please place this disk elsewhere.`;
-	}
-	// else if(){
 
-	// }
+moveToA.addEventListener('click', (event) => {
+	if (currentDisk != null) {
+		towerA.prepend(currentDisk);
+		// let var1 = towerA.childNodes[0].id;
+		// console.log(var1);
+	}
 });
 moveToB.addEventListener('click', (event) => {
-	const parent = currentDisk.parentElement;
-	towerB.prepend(currentDisk);
-	let var1 = towerB.childNodes[0].id;
-	console.log(var1);
+	if (currentDisk != null) {
+		towerB.prepend(currentDisk);
+		// let var1 = towerB.childNodes[0].id;
+		// console.log(var1);
+	}
 });
 moveToC.addEventListener('click', (event) => {
-	const parent = currentDisk.parentElement;
-	towerC.prepend(currentDisk);
+	if (currentDisk != null) {
+		towerC.prepend(currentDisk);
+		// let var1 = towerC.childNodes[0].id;
+		// console.log(var1);
+	}
 });
 
-console.log();
+// console.log(towerA);
 
 // console.log(towerA);
 
