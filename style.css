@@ -8,17 +8,20 @@ body {
 #largeDisk {
 min-width: 75%;
 min-height: 25px;
+display: block;
 
 
 }
 #mediumDisk {
     min-width: 50%;
     min-height: 25px;
+    display: block;
 
 }
 #smallDisk {
     min-width: 25%;
     min-height: 25px;
+    display: block;
 
 }
 .resetButton {
@@ -28,7 +31,7 @@ min-height: 25px;
 background-color: darkslategray;
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
-grid-template-rows: 10vh;
+grid-template-rows: 50vh;
 }
 .stacksButtons{
     margin: 10px;

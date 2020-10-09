@@ -25,22 +25,33 @@ smallDisk.addEventListener('click', (event) => {
 	// console.log(parent.childNodes);
 	if (parent.childNodes[0].id === 'smallDisk') {
 		currentDisk = event.target;
+		playerMessage.innerText = `Valid Selection: Move it to another tower`;
 	} else {
-		playerMessage.innerText = `You have selected${parent.childNodes[0].id} You are not permitted to move disks unless they are on top of the stack.  Please make another selection.`;
+		playerMessage.innerText = `Invalid Selection: You are not permitted to move disks unless they are on top of the stack.  Please make another selection.`;
 		currentDisk = null;
 	}
 });
 mediumDisk.addEventListener('click', (event) => {
 	const parent = event.target.parentElement;
 	console.log(parent);
-	currentDisk = event.target;
-	// console.log(currentDisk);
+	if (parent.childNodes[0].id === 'mediumDisk') {
+		currentDisk = event.target;
+		playerMessage.innerText = `Valid Selection: Move it to another tower`;
+	} else {
+		playerMessage.innerText = `Invalid Selection: You are not permitted to move disks unless they are on top of the stack.  Please make another selection.`;
+		currentDisk = null;
+	}
 });
 largeDisk.addEventListener('click', (event) => {
 	const parent = event.target.parentElement;
 	console.log(parent);
-	currentDisk = event.target;
-	// console.log(currentDisk);
+	if (parent.childNodes[0].id === 'largeDisk') {
+		currentDisk = event.target;
+		playerMessage.innerText = `Valid Selection: Move it to another tower`;
+	} else {
+		playerMessage.innerText = `Invalid Selection: You are not permitted to move disks unless they are on top of the stack.  Please make another selection.`;
+		currentDisk = null;
+	}
 });
 
 moveToA.addEventListener('click', (event) => {
@@ -48,6 +59,7 @@ moveToA.addEventListener('click', (event) => {
 		towerA.prepend(currentDisk);
 		// let var1 = towerA.childNodes[0].id;
 		// console.log(var1);
+		playerMessage.innerText = 'Make your next disk selection';
 	}
 });
 moveToB.addEventListener('click', (event) => {
@@ -55,6 +67,7 @@ moveToB.addEventListener('click', (event) => {
 		towerB.prepend(currentDisk);
 		// let var1 = towerB.childNodes[0].id;
 		// console.log(var1);
+		playerMessage.innerText = 'select next disk';
 	}
 });
 moveToC.addEventListener('click', (event) => {
@@ -62,6 +75,7 @@ moveToC.addEventListener('click', (event) => {
 		towerC.prepend(currentDisk);
 		// let var1 = towerC.childNodes[0].id;
 		// console.log(var1);
+		playerMessage.innerText = 'select next disk';
 	}
 });
 
