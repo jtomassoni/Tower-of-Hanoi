@@ -10,24 +10,21 @@
 	</head>
 	<body>
 		<h1>Tower of Hanoi</h1>
-		<div class="container">
+		
 			<h2>Total Moves:<span id="moveCounter"> 0</span></h2>
-
+			<div class="playerMessage">
+				Welcome to Tower of Hanoi.</br> Move the disks from Tower A to Tower C.  You may only move the <strong>top</strong> disk.</br>  You may only move <strong>one</strong> disk at a time.</br>  <strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>	
+			</div>
 			<div class="gameBoard">
-				<div class="playerMessage">Welcome to Tower of Hanoi. Move the disks from Tower A to Tower C.  You may only move the top disk.  You may only move one disk at a time.  Larger disks can not be stacked on top of smaller disks.
-				</div>
-
-				<div class="isHidJTden" class="movementButtons">
+				<div class="isHidjden">
 					<button id="moveToA">Move to Tower A</button>
 					<button id="moveToB">Move to Tower B</button>
 					<button id="moveToC">Move to Tower C</button>
 				</div>
-
 				<div class="allTowers"><div class="towers" id="towerA"><button id="smallDisk">smallDisk</button><button id="mediumDisk">mediumDisk</button><button id="largeDisk">largeDisk</button></div><div class="towers" id="towerB"></div><div class="towers" id="towerC"></div></div>
 
 				<button class="resetButton"><h3>Start New Game!</h3></button>
 			</div>
-		</div>
 			<footer>
 				<ul>
 					<li><a href="#">Contact</a></li>

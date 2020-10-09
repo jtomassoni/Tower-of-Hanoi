@@ -2,26 +2,24 @@ body {
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.disks{
-    background-color: green;
-}
 #largeDisk {
 min-width: 75%;
 min-height: 25px;
 display: block;
-
-
+color: blue;
 }
 #mediumDisk {
     min-width: 50%;
     min-height: 25px;
     display: block;
+    color: red;
 
 }
 #smallDisk {
     min-width: 25%;
     min-height: 25px;
     display: block;
+    color: green;
 
 }
 .resetButton {
@@ -31,12 +29,11 @@ display: block;
 background-color: darkslategray;
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
-grid-template-rows: 50vh;
 }
-.stacksButtons{
-    margin: 10px;
+#moveToA, #moveToB, #moveToC{
+    font-size: 1.5em;
+    margin: 15px auto;
 }
-
 .diskButtons button {
     display: block;
     margin: auto;

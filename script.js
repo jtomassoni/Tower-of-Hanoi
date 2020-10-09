@@ -84,17 +84,21 @@ moveToC.addEventListener('click', (event) => {
 // console.log(towerA);
 
 //resets the game to start over. NEEDS to do better
-// resetButton.addEventListener('click', (event) => {
-// 	//message
-// 	playerMessage.innerText = 'Welcome to Tower of Hanoi.  Rules are rules';
-// 	//moves disks back to towerA
-// 	towerA = startingCondition;
-// 	//removes the class that indicates the selected disk graphically
-// 	currentDisk.target.classList.remove('selected');
-// 	//sets the current disk selection to null
-// 	currentDisk = null;
-// 	incrementer = 0;
-// });
+resetButton.addEventListener('click', (event) => {
+
+Welcome to Tower of Hanoi.</br> Move the disks from Tower A to Tower C.  You may only move the <strong>top</strong> disk.</br>  You may only move <strong>one</strong> disk at a time.</br>  <strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>
+
+
+	//message
+	playerMessage.innerText = 'Welcome to Tower of Hanoi.  Rules are rules';
+	//moves disks back to towerA
+	towerA = startingCondition;
+	//removes the class that indicates the selected disk graphically
+	currentDisk.target.classList.remove('selected');
+	//sets the current disk selection to null
+	currentDisk = null;
+	incrementer = 0;
+});
 
 // diskButtons.addEventListener('click', (event) => {
 // 	//prevent action on the negative space
