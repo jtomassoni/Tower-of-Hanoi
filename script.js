@@ -11,24 +11,30 @@ let resetButton = document.querySelector('.resetButton');
 let moveToA = document.querySelector('#moveToA');
 let moveToB = document.querySelector('#moveToB');
 let moveToC = document.querySelector('#moveToC');
-let diskButtons = document.querySelector('.diskButtons');
 let moveCounter = document.querySelector('#moveCounter');
 let isHidden = document.querySelector('.isHidden');
 let timer = document.querySelector('#timer');
+var minutesLabel = document.getElementById('timerMinutes');
+var secondsLabel = document.getElementById('timerSeconds');
+let secondsCounter = 0;
 let currentDisk = null;
 let counter = 1;
 let towerHeight = 0;
+let countUp = null;
 
 //Functions
 //Function for displaying invalid due to improper order
 function invalidBadOrder() {
 	playerMessage.innerHTML = `Invalid Selection:</br></br>You may only move the <strong>top</strong> disk.</br>  You may only move <strong>one</strong> disk at a time.</br>  <strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>`;
-	currentDisk = null;
+	currentDisk.classList.toggle('selected');
+	setCurrentDiskNull();
 }
 //Function for displaying ivalid due to placing stack on stack that its on
-function invalidSameStack() {
-	playerMessage.innerHTML = `Invalid Selection:</br></br>You may only move the <strong>top</strong> disk.</br>  You may only move <strong>one</strong> disk at a time.</br>  <strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>`;
-	currentDisk = null;
+function invalidSameTower() {
+	playerMessage.innerHTML =
+		'<strong>Oi!</strong>, I just told ye, put it into a new tower! Give it another try.';
+	currentDisk.classList.toggle('selected');
+	setCurrentDiskNull();
 }
 //Function for displaying the 'click next disk message'
 function validClick() {
@@ -39,12 +45,18 @@ function setCurrentDisk() {
 	currentDisk = event.target;
 }
 //Better function for toggling display
-function toggleClass() {
+function toggleMovementDisplay() {
 	isHidden.style.display = 'block';
 }
-//Function for toggling display of class list.
+//Function for toggling display of class list....can prob re-work these
 function toggleSmall() {
 	smallDisk.classList.toggle('selected');
+}
+function toggleMedium() {
+	mediumDisk.classList.toggle('selected');
+}
+function toggleLarge() {
+	largeDisk.classList.toggle('selected');
 }
 //Function for increasing the counter.
 function increaseCounter() {
@@ -52,9 +64,28 @@ function increaseCounter() {
 	currentDisk.classList.toggle('selected');
 	counter++;
 }
-//Function for starting the timer
+//Function for starting the timer...got this from stackoverflow by searching "pain count up timer in js",
+function setTime() {
+	++secondsCounter; //incrementer
+	timerSeconds.innerHTML = pad(secondsCounter);
+	timerminutes.innerHTML = pad(Number(secondsCounter / 60));
+}
+
+// pad function adds an extra 0 to the clock if the the length of the minutes is less than two digits, also obtained from StackOverflow.
+function pad(val) {
+	let valString = val + ''; //turns the current time into a string
+	if (valString.length < 2) {
+		//checks if its a single or double digit
+		return '0' + valString; //if it is a single digit, return it with a 0 in front.
+	} else {
+		return valString; //otherwise, return string unchanged.
+	}
+}
+//function for starting the timer.
 function startTimer() {
-	timer.innerHTML = 'hello';
+	if (secondsLabel.innerHTML === '00') {
+		countUp = setInterval(setTime, 1000); //allows us to call clearInerval on this variable later.
+	}
 }
 
 //Function for resetting game.
@@ -67,7 +98,8 @@ function resetGame() {
 	mediumDisk.classList.remove('selected');
 	largeDisk.classList.remove('selected');
 	moveCounter.innerText = '';
-	currentDisk = null;
+	setCurrentDiskNull();
+	timerSeconds.innerText = '00';
 }
 //Function for setCurrentDiskNull
 function setCurrentDiskNull() {
@@ -77,20 +109,20 @@ function setCurrentDiskNull() {
 function checkWin() {
 	if (towerC.childElementCount === 3) {
 		playerMessage.innerHTML = 'YOU WON!!!! LFG';
+		clearInterval(countUp); //stops the timer.
 	}
 }
 
+//Event Listeners
+//Disks
 smallDisk.addEventListener('click', (event) => {
 	const parent = event.target.parentElement;
 	if (parent.childNodes[0].id === 'smallDisk') {
 		setCurrentDisk();
 		toggleSmall();
 		validClick();
-		toggleClass();
-		//start timer
-		setInterval(function () {
-			timer.innerText = 'hello';
-		}, 3000);
+		toggleMovementDisplay();
+		startTimer();
 	} else {
 		invalidBadOrder();
 		setCurrentDiskNull();
@@ -99,105 +131,94 @@ smallDisk.addEventListener('click', (event) => {
 mediumDisk.addEventListener('click', (event) => {
 	const parent = event.target.parentElement;
 	if (parent.childNodes[0].id === 'mediumDisk') {
-		currentDisk = event.target;
-		playerMessage.innerText = `Valid Selection: Move it to another tower`;
-		mediumDisk.classList.toggle('selected');
-		isHidden.style.display = 'block';
+		setCurrentDisk();
+		toggleMedium();
+		validClick();
+		toggleMovementDisplay();
+		startTimer();
 	} else {
-		playerMessage.innerHTML = `Invalid Selection:</br></br>You may only move the <strong>top</strong> disk.</br>  You may only move <strong>one</strong> disk at a time.</br>  <strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>`;
+		invalidBadOrder();
 		setCurrentDiskNull();
 	}
 });
 largeDisk.addEventListener('click', (event) => {
 	const parent = event.target.parentElement;
-	console.log(parent);
-	if (parent.childNodes[0].id === 'largeDisk') {
-		currentDisk = event.target;
-		playerMessage.innerText = `Valid Selection: Move it to another tower`;
-		largeDisk.classList.toggle('selected');
-		isHidden.style.display = 'block';
+	if (parent.childNodes[0].id === 'mediumDisk') {
+		setCurrentDisk();
+		toggleLarge();
+		validClick();
+		toggleMovementDisplay();
+		startTimer();
 	} else {
-		playerMessage.innerHTML = `Invalid Selection:</br></br>You may only move the <strong>top</strong> disk.</br>  You may only move <strong>one</strong> disk at a time.</br>  <strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>`;
-		currentDisk = null;
+		invalidBadOrder();
+		setCurrentDiskNull();
 	}
 });
-
+//Movement Buttons
 moveToA.addEventListener('click', (event) => {
 	const parent = event.target;
 	if (towerA.childNodes.length === 0) {
 		if (currentDisk != null) {
-			moveCounter.innerText = counter;
-			currentDisk.classList.toggle('selected');
-			counter++;
-			playerMessage.innerHTML =
-				'Select the next disk.  Make sure it is on <em>top</em> of the 	tower.';
+			increaseCounter();
+			validClick();
 			towerA.prepend(currentDisk);
 			checkWin();
 		}
+	} else if (Number(currentDisk.value) === Number(towerA.childNodes[0].value)) {
+		invalidSameTower();
 	} else if (Number(currentDisk.value) < Number(towerA.childNodes[0].value)) {
+		increaseCounter();
+		setCurrentDiskNull();
 		towerA.prepend(currentDisk);
-		moveCounter.innerText = counter;
-		currentDisk.classList.toggle('selected');
-		counter++;
-		currentDisk = null;
 		checkWin();
 	} else {
-		playerMessage.innerHTML =
-			'Invalid Selection:</br></br> <strong></strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>';
-		currentDisk.classList.toggle('selected');
+		invalidBadOrder();
+		playerMessage.innerHTML = currentDisk.classList.toggle('selected');
 	}
 });
 moveToB.addEventListener('click', (event) => {
 	const parent = event.target;
 	if (towerB.childNodes.length === 0) {
 		if (currentDisk != null) {
-			moveCounter.innerText = counter;
-			currentDisk.classList.toggle('selected');
-			counter++;
-			playerMessage.innerHTML =
-				'Select the next disk.  Make sure it is on <em>top</em> of the 	tower.';
+			increaseCounter();
+			validClick();
 			towerB.prepend(currentDisk);
 			checkWin();
 		}
+	} else if (Number(currentDisk.value) === Number(towerB.childNodes[0].value)) {
+		invalidSameTower();
 	} else if (Number(currentDisk.value) < Number(towerB.childNodes[0].value)) {
+		increaseCounter();
+		setCurrentDiskNull();
 		towerB.prepend(currentDisk);
-		moveCounter.innerText = counter;
-		counter++;
-		currentDisk.classList.toggle('selected');
-		currentDisk = null;
 		checkWin();
 	} else {
-		playerMessage.innerHTML =
-			'Invalid Selection:</br></br> <strong></strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>';
-		currentDisk.classList.toggle('selected');
+		invalidBadOrder();
+		playerMessage.innerHTML = currentDisk.classList.toggle('selected');
 	}
 });
 moveToC.addEventListener('click', (event) => {
 	const parent = event.target;
 	if (towerC.childNodes.length === 0) {
 		if (currentDisk != null) {
-			moveCounter.innerText = counter;
-			currentDisk.classList.toggle('selected');
-			counter++;
-			playerMessage.innerHTML =
-				'Select the next disk.  Make sure it is on <em>top</em> of the 	tower.';
+			increaseCounter();
+			validClick();
 			towerC.prepend(currentDisk);
 			checkWin();
 		}
+	} else if (Number(currentDisk.value) === Number(towerC.childNodes[0].value)) {
+		invalidSameTower();
 	} else if (Number(currentDisk.value) < Number(towerC.childNodes[0].value)) {
+		increaseCounter();
+		setCurrentDiskNull();
 		towerC.prepend(currentDisk);
-		moveCounter.innerText = counter;
-		currentDisk.classList.toggle('selected');
-		counter++;
-		currentDisk = null;
 		checkWin();
 	} else {
-		playerMessage.innerHTML =
-			'Invalid Selection:</br></br> <strong></strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>';
-		currentDisk.classList.toggle('selected');
+		invalidBadOrder();
+		playerMessage.innerHTML = currentDisk.classList.toggle('selected');
 	}
 });
-
+//Reset Game Button
 resetButton.addEventListener('click', (event) => {
 	resetGame();
 });

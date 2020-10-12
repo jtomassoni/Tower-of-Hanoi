@@ -5,7 +5,8 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .introMessage {
-    border-bottom: 1px solid;
+    border-bottom: 1px dashed;
+    padding-bottom: 10px;
 }
 #largeDisk {
     min-width: 75%;
@@ -35,17 +36,11 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     min-height: 300px;
+    justify-content: center;
 }
 #moveToA, #moveToB, #moveToC{
     font-size: 1.5em;
     margin: 1vw 1vh;
-}
-.diskButtons button {
-    display: block;
-    margin: auto;
-    position: relative;
-    top: 50%;
-    
 }
 .isHidden{
     display:none;
@@ -65,4 +60,8 @@ footer ul li {
     color: white;
     background-color: gray;
     border: 2px solid white;
+}
+
+#towers{
+    justify-content: center;
 }
