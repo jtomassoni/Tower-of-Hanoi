@@ -222,3 +222,5 @@ moveToC.addEventListener('click', (event) => {
 resetButton.addEventListener('click', (event) => {
 	resetGame();
 });
+
+console.log('goodbyeworld');
