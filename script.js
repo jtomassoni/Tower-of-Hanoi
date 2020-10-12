@@ -168,8 +168,8 @@ moveToA.addEventListener('click', (event) => {
 		invalidSameTower();
 	} else if (Number(currentDisk.value) < Number(towerA.childNodes[0].value)) {
 		increaseCounter();
-		setCurrentDiskNull();
 		towerA.prepend(currentDisk);
+		setCurrentDiskNull();
 		checkWin();
 	} else {
 		invalidBadOrder();
@@ -189,8 +189,8 @@ moveToB.addEventListener('click', (event) => {
 		invalidSameTower();
 	} else if (Number(currentDisk.value) < Number(towerB.childNodes[0].value)) {
 		increaseCounter();
-		setCurrentDiskNull();
 		towerB.prepend(currentDisk);
+		setCurrentDiskNull();
 		checkWin();
 	} else {
 		invalidBadOrder();
@@ -210,8 +210,8 @@ moveToC.addEventListener('click', (event) => {
 		invalidSameTower();
 	} else if (Number(currentDisk.value) < Number(towerC.childNodes[0].value)) {
 		increaseCounter();
-		setCurrentDiskNull();
 		towerC.prepend(currentDisk);
+		setCurrentDiskNull();
 		checkWin();
 	} else {
 		invalidBadOrder();
