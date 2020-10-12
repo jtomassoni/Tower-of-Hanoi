@@ -14,10 +14,10 @@
 		<div class="introMessage">
 			Move the disks from Tower A to Tower C.  You may only move the <strong>top</strong> disk.</br>  You may only move <strong>one</strong> disk at a time.</br>  <strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>	
 		</div>
-		<h2>Total Moves:<span id="moveCounter"></span></h2>
+		<h2>Total Moves: <span id="moveCounter"></span> | Timer: <span id = "timerMinutes">00</span>:<span id="timerSeconds">00</span></span></h2>
 			<div class="gameBoard">
-				<div class="isHidjden"><button id="moveToA">Move to Tower A</button><button id="moveToB">Move to Tower B</button><button id="moveToC">Move to Tower C</button></div>
-				<div class="allTowers"><div value = 0 class="towers" id="towerA"><button value = 1 id="smallDisk">smallDisk</button><button value=2 id="mediumDisk">mediumDisk</button><button value=3 id="largeDisk">largeDisk</button></div><div value = 0 class="towers" id="towerB"></div><div value = 0 class="towers" id="towerC"></div></div>
+				<div class="isHidden"><button id="moveToA">Move to Tower A</button><button id="moveToB">Move to Tower B</button><button id="moveToC">Move to Tower C</button></div>
+				<div class="allTowers"><div value = 0 id="towerA"><button class="towers" value = 1 id="smallDisk">smallDisk</button><button class="towers" value=2 id="mediumDisk">mediumDisk</button><button class="towers" value=3 id="largeDisk">largeDisk</button></div><div value = 0 id="towerB"></div><div value = 0 id="towerC"></div></div>
 
 				<button class="resetButton"><h3>Start New Game!</h3></button>
 				<div class = playerMessage></div>
