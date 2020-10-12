@@ -1,4 +1,6 @@
 body {
+    color: white;
+    background-color: black;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -6,10 +8,10 @@ body {
     border-bottom: 1px solid;
 }
 #largeDisk {
-min-width: 75%;
-min-height: 25px;
-display: block;
-color: blue;
+    min-width: 75%;
+    min-height: 25px;
+    display: block;
+    color: blue;
 }
 #mediumDisk {
     min-width: 50%;
@@ -29,13 +31,14 @@ color: blue;
     margin: 10px;
 }
 .allTowers{
-background-color: darkslategray;
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
+    background-color: darkslategray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    min-height: 300px;
 }
 #moveToA, #moveToB, #moveToC{
     font-size: 1.5em;
-    margin: 15px auto;
+    margin: 1vw 1vh;
 }
 .diskButtons button {
     display: block;
@@ -59,4 +62,7 @@ footer ul li {
 
 
 .selected{
-   background-color: darkblue;
+    color: white;
+    background-color: gray;
+    border: 2px solid white;
+}
