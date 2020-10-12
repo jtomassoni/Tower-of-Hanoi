@@ -26,14 +26,14 @@ let countUp = null;
 //Function for displaying invalid due to improper order
 function invalidBadOrder() {
 	playerMessage.innerHTML = `Invalid Selection:</br></br>You may only move the <strong>top</strong> disk.</br>  You may only move <strong>one</strong> disk at a time.</br>  <strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>`;
-	currentDisk.classList.toggle('selected');
+	currentDisk.classList.remove('selected');
 	setCurrentDiskNull();
 }
 //Function for displaying ivalid due to placing stack on stack that its on
 function invalidSameTower() {
 	playerMessage.innerHTML =
 		'<strong>Oi!</strong>, I just told ye, put it into a new tower! Give it another try.';
-	currentDisk.classList.toggle('selected');
+	currentDisk.classList.remove('selected');
 	setCurrentDiskNull();
 }
 //Function for displaying the 'click next disk message'
@@ -67,7 +67,7 @@ function increaseCounter() {
 //Function for starting the timer...got this from stackoverflow by searching "pain count up timer in js",
 function setTime() {
 	++secondsCounter; //incrementer
-	timerSeconds.innerHTML = pad(secondsCounter);
+	timerSeconds.innerHTML = pad(secondsCounter % 60);
 	timerminutes.innerHTML = pad(Number(secondsCounter / 60));
 }
 
@@ -98,8 +98,8 @@ function resetGame() {
 	mediumDisk.classList.remove('selected');
 	largeDisk.classList.remove('selected');
 	moveCounter.innerText = '';
-	setCurrentDiskNull();
 	timerSeconds.innerText = '00';
+	setCurrentDiskNull();
 }
 //Function for setCurrentDiskNull
 function setCurrentDiskNull() {
@@ -143,7 +143,7 @@ mediumDisk.addEventListener('click', (event) => {
 });
 largeDisk.addEventListener('click', (event) => {
 	const parent = event.target.parentElement;
-	if (parent.childNodes[0].id === 'mediumDisk') {
+	if (parent.childNodes[0].id === 'largeDisk') {
 		setCurrentDisk();
 		toggleLarge();
 		validClick();
@@ -162,6 +162,8 @@ moveToA.addEventListener('click', (event) => {
 			increaseCounter();
 			validClick();
 			towerA.prepend(currentDisk);
+			setCurrentDiskNull();
+
 			checkWin();
 		}
 	} else if (Number(currentDisk.value) === Number(towerA.childNodes[0].value)) {
