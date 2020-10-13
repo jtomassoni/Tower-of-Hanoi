@@ -1,12 +1,27 @@
 body {
     color: white;
     background-color: black;
-    /* text-align: center; */
+    text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .introMessage {
     border-bottom: 1px dashed;
     padding-bottom: 10px;
+}
+#towerA{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+}
+#towerB{
+     display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+}
+#towerC{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
 }
 #largeDisk {
     min-width: 75%;
