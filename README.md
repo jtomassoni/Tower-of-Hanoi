@@ -32,13 +32,13 @@ Tower of Hanoi is a puzzle game that requires the player to shift each of any nu
 
 ### MVP Goals
 
-- Visual game board
-- display rules and a start game button
+- Visual game board:
+- Display rules and a start game button
 - Move Counter
-- Identify each stack and disk.
-- know the difference between clicks and placements
+- Identify each stack and disk
+- know the difference between disk selections and disk placements
 - evaluate placements such that we prevent a larger disk from being placed on top of a smaller disk and know if there's a win.
-- display a winning message
+- evaluate a win and display a winning message
 
 ### Stretch Goals
 
@@ -46,7 +46,7 @@ Tower of Hanoi is a puzzle game that requires the player to shift each of any nu
 - Click and drag a disk to another stack
 - calculate the least # of moves required for each # of disks and display it.
 - modal for intro message and win message.
-- gfx/emphasis to show when you've grabbed a disk and placed it elsewhere.
+- gfx/emphasis to show when you've grabbed a disk and placed it elsewhere. GOT THIS DONE!
 - make stacks graphics of the world's tallest buildings
 
 ## Technologies
@@ -54,11 +54,12 @@ Tower of Hanoi is a puzzle game that requires the player to shift each of any nu
 - HTML
 - CSS
 - JavaScript
+- MF'in Google
 
 ## Installation
 
 - open a web browser and navigate to [my personal website.](www.jamesetomassoni.com)
-- be super gentle about that.
+- be gentle.
 
 ## Screenshots
 
@@ -76,11 +77,16 @@ Tower of Hanoi is a puzzle game that requires the player to shift each of any nu
 
 ## Unsolved Mysteries
 
-- CSS will be the death of me. My next project will be to rebuild this using react and bootstrap.
--
+- thinking you're at MVP when you aren't.
+- .....almost all of my stretch goals related to styling
+  - click and drag
+  - background graphics
+  - CSS will be the death of me. My next project will be to rebuild this using react and bootstrap.
+- Evaluating a win felt kind of cheap.
+- Calculate the minimum # of moves
+  - wrap my head around the pattern of moves per disk :facepalm:
 
 ## Solved Mysteries
 
-- nodeLists != Arrays. We can use _some_ array methods on nodeLists, however, it's much more effective to swap the nodeList into an array.
-
-Syntax: Array(nodeList)
+- nodeLists != Arrays. We can use _some_ array methods on nodeLists and they look similar in the console, however, it's much more effective to swap the nodeList into an array. These are commonly found with **_querySelectorAll_** as well as anytime you use the **_object.childNodes_**, as well as many other scenarios.
+- I didn't ever really acknowledge learning any of this, but with a couple nudges in the right direction by teammates and instructors, I was able to make this work, and that feels fantastic.
