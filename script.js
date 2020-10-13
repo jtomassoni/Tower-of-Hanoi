@@ -179,6 +179,10 @@ moveToA.addEventListener('click', (event) => {
 			setCurrentDiskNull();
 			checkWin();
 			startTimer();
+		} else if (
+			Number(currentDisk.value) === Number(towerA.childNodes[0].value)
+		) {
+			invalidSameTower();
 		} else if (Number(currentDisk.value) < Number(towerA.childNodes[0].value)) {
 			increaseCounter();
 			towerA.prepend(currentDisk);
@@ -186,10 +190,6 @@ moveToA.addEventListener('click', (event) => {
 			setCurrentDiskNull();
 			checkWin();
 			startTimer();
-		} else if (
-			Number(currentDisk.value) === Number(towerA.childNodes[0].value)
-		) {
-			invalidSameTower();
 		} else {
 			invalidBadOrder();
 			playerMessage.innerHTML = currentDisk.classList.toggle('selected');

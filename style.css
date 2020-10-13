@@ -1,70 +1,74 @@
 body {
-    color: white;
-    background-color: black;
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+	color: white;
+	background-color: black;
+	text-align: center;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .introMessage {
-    border-bottom: 1px dashed;
-    padding-bottom: 10px;
+	border-bottom: 1px dashed;
+	padding-bottom: 10px;
 }
-#towerA{
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    justify-items: center;
+#towerA {
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+	justify-items: center;
 }
-#towerB{
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    justify-items: center;
+#towerB {
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+	justify-items: center;
 }
-#towerC{
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    justify-items: center;
+#towerC {
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+	justify-items: center;
 }
 #largeDisk {
-    min-width: 75%;
+	min-width: 75%;
 }
 #mediumDisk {
-    min-width: 50%;
+	min-width: 50%;
 }
 #smallDisk {
-    min-width: 25%;
+	min-width: 25%;
 }
 .resetButton {
-    margin: 10px;
-    font-size: 1.5rem;
+	margin: 10px;
+	font-size: 1.5rem;
 }
-.allTowers{
-    background-color: darkslategray;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 20px 1fr;
-    min-height: 300px;
+.allTowers {
+	background-color: darkslategray;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 20px 1fr;
+	min-height: 300px;
 }
 .allTowers > div {
-    text-align: center;
-    grid-row: 2
-    
-} 
-#moveToA, #moveToB, #moveToC{
-    font-size: 1.5em;
-    margin: 1vw 1vh;
+	text-align: center;
+	grid-row: 2;
 }
-.isHidden{
-    display: none;
+#moveToA,
+#moveToB,
+#moveToC {
+	font-size: 1.5em;
+	margin: 1vw 1vh;
+}
+.isHidden {
+	display: none;
 }
 footer ul li {
-    font-size: .5rem;
-    list-style-type: none;
-    display: inline;
-    float: right;
-    padding: 5px;
-    margin 10px;
+	font-size: 0.5rem;
+	list-style-type: none;
+	display: inline;
+	float: right;
+	padding: 5px;
+	margin: 10px;
 }
-.selected{
-    color: white;
-    background-color: black;
-    border: 2px solid white;
+footer ul li a:hover {
+	color: white;
+}
+.selected {
+	color: white;
+	background-color: black;
+	border: 2px solid white;
 }
