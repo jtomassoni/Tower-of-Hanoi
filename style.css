@@ -32,7 +32,6 @@ body {
     min-width: 50%;
     min-height: 25px;
     color: red;
-
 }
 #smallDisk {
     min-width: 25%;
@@ -47,11 +46,13 @@ body {
     background-color: darkslategray;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 20px 1fr;
     min-height: 300px;
 }
 
 .allTowers > div {
     text-align: center;
+    grid-row: 2
     
 } 
 #moveToA, #moveToB, #moveToC{

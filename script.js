@@ -37,8 +37,11 @@ function invalidSameTower() {
 	setCurrentDiskNull();
 }
 //Function for displaying the 'click next disk message'
-function validClick() {
+function validClickOnDisk() {
 	playerMessage.innerText = `Valid Selection: Move it to another tower`;
+}
+function validPlacementOnTower() {
+	playerMessage.innerText = `That's a great lay, keep going!`;
 }
 // Function to set currentDisk
 function setCurrentDisk() {
@@ -91,9 +94,9 @@ function startTimer() {
 //Function for resetting game.
 function resetGame() {
 	playerMessage.innerHTML = `...maybe do better this time?`;
-	towerA.prepend(largeDisk);
-	towerA.prepend(mediumDisk);
-	towerA.prepend(smallDisk);
+	towerA.append(smallDisk);
+	towerA.append(mediumDisk);
+	towerA.append(largeDisk);
 	smallDisk.classList.remove('selected');
 	mediumDisk.classList.remove('selected');
 	largeDisk.classList.remove('selected');
@@ -116,12 +119,15 @@ function checkWin() {
 //Event Listeners
 //Disks
 smallDisk.addEventListener('click', (event) => {
-	// console.log(event.target);
+	let filteredResult = null;
 	const parent = event.target.parentElement;
-	if (parent.childNodes[0].id === 'smallDisk') {
-		setCurrentDisk();
+	let array = Array.from(parent.childNodes).filter((x) => {
+		return x.nodeName !== '#text';
+	});
+	setCurrentDisk();
+	if (array[0].id === currentDisk.id) {
 		toggleSmall();
-		validClick();
+		validClickOnDisk();
 		toggleMovementDisplay();
 	} else {
 		invalidBadOrder();
@@ -129,11 +135,15 @@ smallDisk.addEventListener('click', (event) => {
 	}
 });
 mediumDisk.addEventListener('click', (event) => {
+	let filteredResult = null;
 	const parent = event.target.parentElement;
-	if (parent.childNodes[0].id === 'mediumDisk') {
-		setCurrentDisk();
+	let array = Array.from(parent.childNodes).filter((x) => {
+		return x.nodeName !== '#text';
+	});
+	setCurrentDisk();
+	if (array[0].id === currentDisk.id) {
 		toggleMedium();
-		validClick();
+		validClickOnDisk();
 		toggleMovementDisplay();
 	} else {
 		invalidBadOrder();
@@ -141,11 +151,16 @@ mediumDisk.addEventListener('click', (event) => {
 	}
 });
 largeDisk.addEventListener('click', (event) => {
+	let filteredResult = null;
 	const parent = event.target.parentElement;
-	if (parent.childNodes[0].id === 'largeDisk') {
-		setCurrentDisk();
+	let array = Array.from(parent.childNodes).filter((x) => {
+		return x.nodeName !== '#text';
+	});
+	setCurrentDisk();
+	console.log(array);
+	if (array[0].id === currentDisk.id) {
 		toggleLarge();
-		validClick();
+		validClickOnDisk();
 		toggleMovementDisplay();
 	} else {
 		invalidBadOrder();
@@ -155,74 +170,81 @@ largeDisk.addEventListener('click', (event) => {
 //Movement Buttons
 moveToA.addEventListener('click', (event) => {
 	const parent = event.target;
-	if (towerA.childNodes.length === 0) {
-		if (currentDisk != null) {
+	let array = Array.from(towerA.childNodes);
+	if (currentDisk != null) {
+		if (towerA.childNodes.length === 0 || 4) {
 			increaseCounter();
-			validClick();
 			towerA.prepend(currentDisk);
 			setCurrentDiskNull();
 			checkWin();
 			startTimer();
+		} else if (Number(currentDisk.value) < Number(towerA.childNodes[0].value)) {
+			increaseCounter();
+			towerA.prepend(currentDisk);
+			setCurrentDiskNull();
+			checkWin();
+			startTimer();
+		} else if (
+			Number(currentDisk.value) === Number(towerA.childNodes[0].value)
+		) {
+			invalidSameTower();
+		} else {
+			invalidBadOrder();
+			playerMessage.innerHTML = currentDisk.classList.toggle('selected');
 		}
-	} else if (Number(currentDisk.value) === Number(towerA.childNodes[0].value)) {
-		invalidSameTower();
-	} else if (Number(currentDisk.value) < Number(towerA.childNodes[0].value)) {
-		increaseCounter();
-		towerA.prepend(currentDisk);
-		setCurrentDiskNull();
-		checkWin();
-		startTimer();
-	} else {
-		invalidBadOrder();
-		playerMessage.innerHTML = currentDisk.classList.toggle('selected');
 	}
 });
 moveToB.addEventListener('click', (event) => {
 	const parent = event.target;
-	if (towerB.childNodes.length === 0) {
-		if (currentDisk != null) {
+	let array = Array.from(towerB.childNodes);
+	if (currentDisk != null) {
+		if (towerB.childNodes.length === 0) {
 			increaseCounter();
-			validClick();
 			towerB.prepend(currentDisk);
 			setCurrentDiskNull();
 			checkWin();
 			startTimer();
+		} else if (Number(currentDisk.value) < Number(towerB.childNodes[0].value)) {
+			increaseCounter();
+			towerB.prepend(currentDisk);
+			setCurrentDiskNull();
+			checkWin();
+			startTimer();
+		} else if (
+			Number(currentDisk.value) === Number(towerB.childNodes[0].value)
+		) {
+			invalidSameTower();
+		} else {
+			invalidBadOrder();
+			playerMessage.innerHTML = currentDisk.classList.toggle('selected');
 		}
-	} else if (Number(currentDisk.value) === Number(towerB.childNodes[0].value)) {
-		invalidSameTower();
-	} else if (Number(currentDisk.value) < Number(towerB.childNodes[0].value)) {
-		increaseCounter();
-		towerB.prepend(currentDisk);
-		setCurrentDiskNull();
-		checkWin();
-		startTimer();
-	} else {
-		invalidBadOrder();
-		playerMessage.innerHTML = currentDisk.classList.toggle('selected');
 	}
 });
+
 moveToC.addEventListener('click', (event) => {
 	const parent = event.target;
-	if (towerC.childNodes.length === 0) {
-		if (currentDisk != null) {
+	let array = Array.from(towerC.childNodes);
+	if (currentDisk != null) {
+		if (towerC.childNodes.length === 0) {
 			increaseCounter();
-			validClick();
 			towerC.prepend(currentDisk);
 			setCurrentDiskNull();
 			checkWin();
 			startTimer();
+		} else if (Number(currentDisk.value) < Number(towerC.childNodes[0].value)) {
+			increaseCounter();
+			towerC.prepend(currentDisk);
+			setCurrentDiskNull();
+			checkWin();
+			startTimer();
+		} else if (
+			Number(currentDisk.value) === Number(towerC.childNodes[0].value)
+		) {
+			invalidSameTower();
+		} else {
+			invalidBadOrder();
+			playerMessage.innerHTML = currentDisk.classList.toggle('selected');
 		}
-	} else if (Number(currentDisk.value) === Number(towerC.childNodes[0].value)) {
-		invalidSameTower();
-	} else if (Number(currentDisk.value) < Number(towerC.childNodes[0].value)) {
-		increaseCounter();
-		towerC.prepend(currentDisk);
-		setCurrentDiskNull();
-		checkWin();
-		startTimer();
-	} else {
-		invalidBadOrder();
-		playerMessage.innerHTML = currentDisk.classList.toggle('selected');
 	}
 });
 //Reset Game Button
