@@ -101,6 +101,7 @@ function resetGame() {
 	mediumDisk.classList.remove('selected');
 	largeDisk.classList.remove('selected');
 	moveCounter.innerText = '';
+	counter = 1;
 	timerSeconds.innerText = '00';
 	setCurrentDiskNull();
 }
