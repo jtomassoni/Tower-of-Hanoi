@@ -14,8 +14,8 @@ let moveToC = document.querySelector('#moveToC');
 let moveCounter = document.querySelector('#moveCounter');
 let isHidden = document.querySelector('.isHidden');
 let timer = document.querySelector('#timer');
-var minutesLabel = document.getElementById('timerMinutes');
-var secondsLabel = document.getElementById('timerSeconds');
+var timerMinutes = document.getElementById('timerMinutes');
+var timerSeconds = document.getElementById('timerSeconds');
 let secondsCounter = 0;
 let currentDisk = null;
 let counter = 1;
@@ -40,7 +40,7 @@ function invalidSameTower() {
 function validClick() {
 	playerMessage.innerText = `Valid Selection: Move it to another tower`;
 }
-//Function to set currentDisk
+// Function to set currentDisk
 function setCurrentDisk() {
 	currentDisk = event.target;
 }
@@ -64,11 +64,11 @@ function increaseCounter() {
 	currentDisk.classList.toggle('selected');
 	counter++;
 }
-//Function for starting the timer...got this from stackoverflow by searching "pain count up timer in js",
+//Function for starting the timer...got this from stackoverflow by searching "plain count up timer in js",
 function setTime() {
 	++secondsCounter; //incrementer
 	timerSeconds.innerHTML = pad(secondsCounter % 60);
-	timerminutes.innerHTML = pad(Number(secondsCounter / 60));
+	timerMinutes.innerHTML = pad(parseInt(secondsCounter / 60));
 }
 
 // pad function adds an extra 0 to the clock if the the length of the minutes is less than two digits, also obtained from StackOverflow.
@@ -83,7 +83,7 @@ function pad(val) {
 }
 //function for starting the timer.
 function startTimer() {
-	if (secondsLabel.innerHTML === '00') {
+	if (timerSeconds.innerHTML === '00') {
 		countUp = setInterval(setTime, 1000); //allows us to call clearInerval on this variable later.
 	}
 }
@@ -116,13 +116,13 @@ function checkWin() {
 //Event Listeners
 //Disks
 smallDisk.addEventListener('click', (event) => {
+	// console.log(event.target);
 	const parent = event.target.parentElement;
 	if (parent.childNodes[0].id === 'smallDisk') {
 		setCurrentDisk();
 		toggleSmall();
 		validClick();
 		toggleMovementDisplay();
-		startTimer();
 	} else {
 		invalidBadOrder();
 		setCurrentDiskNull();
@@ -135,7 +135,6 @@ mediumDisk.addEventListener('click', (event) => {
 		toggleMedium();
 		validClick();
 		toggleMovementDisplay();
-		startTimer();
 	} else {
 		invalidBadOrder();
 		setCurrentDiskNull();
@@ -148,7 +147,6 @@ largeDisk.addEventListener('click', (event) => {
 		toggleLarge();
 		validClick();
 		toggleMovementDisplay();
-		startTimer();
 	} else {
 		invalidBadOrder();
 		setCurrentDiskNull();
@@ -163,8 +161,8 @@ moveToA.addEventListener('click', (event) => {
 			validClick();
 			towerA.prepend(currentDisk);
 			setCurrentDiskNull();
-
 			checkWin();
+			startTimer();
 		}
 	} else if (Number(currentDisk.value) === Number(towerA.childNodes[0].value)) {
 		invalidSameTower();
@@ -173,6 +171,7 @@ moveToA.addEventListener('click', (event) => {
 		towerA.prepend(currentDisk);
 		setCurrentDiskNull();
 		checkWin();
+		startTimer();
 	} else {
 		invalidBadOrder();
 		playerMessage.innerHTML = currentDisk.classList.toggle('selected');
@@ -185,7 +184,9 @@ moveToB.addEventListener('click', (event) => {
 			increaseCounter();
 			validClick();
 			towerB.prepend(currentDisk);
+			setCurrentDiskNull();
 			checkWin();
+			startTimer();
 		}
 	} else if (Number(currentDisk.value) === Number(towerB.childNodes[0].value)) {
 		invalidSameTower();
@@ -194,6 +195,7 @@ moveToB.addEventListener('click', (event) => {
 		towerB.prepend(currentDisk);
 		setCurrentDiskNull();
 		checkWin();
+		startTimer();
 	} else {
 		invalidBadOrder();
 		playerMessage.innerHTML = currentDisk.classList.toggle('selected');
@@ -206,7 +208,9 @@ moveToC.addEventListener('click', (event) => {
 			increaseCounter();
 			validClick();
 			towerC.prepend(currentDisk);
+			setCurrentDiskNull();
 			checkWin();
+			startTimer();
 		}
 	} else if (Number(currentDisk.value) === Number(towerC.childNodes[0].value)) {
 		invalidSameTower();
@@ -215,6 +219,7 @@ moveToC.addEventListener('click', (event) => {
 		towerC.prepend(currentDisk);
 		setCurrentDiskNull();
 		checkWin();
+		startTimer();
 	} else {
 		invalidBadOrder();
 		playerMessage.innerHTML = currentDisk.classList.toggle('selected');
