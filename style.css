@@ -14,7 +14,7 @@ body {
     justify-items: center;
 }
 #towerB{
-     display: grid;
+    display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     justify-items: center;
 }
@@ -25,22 +25,16 @@ body {
 }
 #largeDisk {
     min-width: 75%;
-    min-height: 25px;
-    color: blue;
 }
 #mediumDisk {
     min-width: 50%;
-    min-height: 25px;
-    color: red;
 }
 #smallDisk {
     min-width: 25%;
-    min-height: 25px;
-    color: green;
-
 }
 .resetButton {
     margin: 10px;
+    font-size: 1.5rem;
 }
 .allTowers{
     background-color: darkslategray;
@@ -49,7 +43,6 @@ body {
     grid-template-rows: 20px 1fr;
     min-height: 300px;
 }
-
 .allTowers > div {
     text-align: center;
     grid-row: 2
@@ -62,7 +55,6 @@ body {
 .isHidden{
     display: none;
 }
-
 footer ul li {
     font-size: .5rem;
     list-style-type: none;
@@ -71,14 +63,8 @@ footer ul li {
     padding: 5px;
     margin 10px;
 }
-
-
 .selected{
     color: white;
-    background-color: gray;
+    background-color: black;
     border: 2px solid white;
 }
-/* 
-#towers{
-    justify-content: center;
-} */

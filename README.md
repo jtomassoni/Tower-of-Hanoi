@@ -48,3 +48,39 @@ Tower of Hanoi is a puzzle game that requires the player to shift each of any nu
 - modal for intro message and win message.
 - gfx/emphasis to show when you've grabbed a disk and placed it elsewhere.
 - make stacks graphics of the world's tallest buildings
+
+## Technologies
+
+- HTML
+- CSS
+- JavaScript
+
+## Installation
+
+- open a web browser and navigate to [my personal website.](www.jamesetomassoni.com)
+- be super gentle about that.
+
+## Screenshots
+
+### Starting:
+
+![starting-ss](images/In-Game.png)
+
+### In-Game
+
+![in-game-ss](images/In-Game.png)
+
+### Winner
+
+![winner-ss](images/Winner.png)
+
+## Unsolved Mysteries
+
+- CSS will be the death of me. My next project will be to rebuild this using react and bootstrap.
+-
+
+## Solved Mysteries
+
+- nodeLists != Arrays. We can use _some_ array methods on nodeLists, however, it's much more effective to swap the nodeList into an array.
+
+Syntax: Array(nodeList)

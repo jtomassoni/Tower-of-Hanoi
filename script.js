@@ -122,11 +122,11 @@ function checkWin() {
 smallDisk.addEventListener('click', (event) => {
 	let filteredResult = null;
 	const parent = event.target.parentElement;
-	let array = Array.from(parent.childNodes).filter((x) => {
+	let arr = Array.from(parent.childNodes).filter((x) => {
 		return x.nodeName !== '#text';
 	});
 	setCurrentDisk();
-	if (array[0].id === currentDisk.id) {
+	if (arr[0].id === currentDisk.id) {
 		toggleSmall();
 		validClickOnDisk();
 		toggleMovementDisplay();
@@ -138,11 +138,11 @@ smallDisk.addEventListener('click', (event) => {
 mediumDisk.addEventListener('click', (event) => {
 	let filteredResult = null;
 	const parent = event.target.parentElement;
-	let array = Array.from(parent.childNodes).filter((x) => {
+	let arr = Array.from(parent.childNodes).filter((x) => {
 		return x.nodeName !== '#text';
 	});
 	setCurrentDisk();
-	if (array[0].id === currentDisk.id) {
+	if (arr[0].id === currentDisk.id) {
 		toggleMedium();
 		validClickOnDisk();
 		toggleMovementDisplay();
@@ -154,12 +154,11 @@ mediumDisk.addEventListener('click', (event) => {
 largeDisk.addEventListener('click', (event) => {
 	let filteredResult = null;
 	const parent = event.target.parentElement;
-	let array = Array.from(parent.childNodes).filter((x) => {
+	let arr = Array.from(parent.childNodes).filter((x) => {
 		return x.nodeName !== '#text';
 	});
 	setCurrentDisk();
-	console.log(array);
-	if (array[0].id === currentDisk.id) {
+	if (arr[0].id === currentDisk.id) {
 		toggleLarge();
 		validClickOnDisk();
 		toggleMovementDisplay();
@@ -171,17 +170,19 @@ largeDisk.addEventListener('click', (event) => {
 //Movement Buttons
 moveToA.addEventListener('click', (event) => {
 	const parent = event.target;
-	let array = Array.from(towerA.childNodes);
+	let arr = Array.from(towerA.childNodes);
 	if (currentDisk != null) {
 		if (towerA.childNodes.length === 0 || 4) {
 			increaseCounter();
 			towerA.prepend(currentDisk);
+			validPlacementOnTower();
 			setCurrentDiskNull();
 			checkWin();
 			startTimer();
 		} else if (Number(currentDisk.value) < Number(towerA.childNodes[0].value)) {
 			increaseCounter();
 			towerA.prepend(currentDisk);
+			validPlacementOnTower();
 			setCurrentDiskNull();
 			checkWin();
 			startTimer();
@@ -197,17 +198,19 @@ moveToA.addEventListener('click', (event) => {
 });
 moveToB.addEventListener('click', (event) => {
 	const parent = event.target;
-	let array = Array.from(towerB.childNodes);
+	let arr = Array.from(towerB.childNodes);
 	if (currentDisk != null) {
 		if (towerB.childNodes.length === 0) {
 			increaseCounter();
 			towerB.prepend(currentDisk);
+			validPlacementOnTower();
 			setCurrentDiskNull();
 			checkWin();
 			startTimer();
 		} else if (Number(currentDisk.value) < Number(towerB.childNodes[0].value)) {
 			increaseCounter();
 			towerB.prepend(currentDisk);
+			validPlacementOnTower();
 			setCurrentDiskNull();
 			checkWin();
 			startTimer();
@@ -224,17 +227,19 @@ moveToB.addEventListener('click', (event) => {
 
 moveToC.addEventListener('click', (event) => {
 	const parent = event.target;
-	let array = Array.from(towerC.childNodes);
+	let arr = Array.from(towerC.childNodes);
 	if (currentDisk != null) {
 		if (towerC.childNodes.length === 0) {
 			increaseCounter();
 			towerC.prepend(currentDisk);
+			validPlacementOnTower();
 			setCurrentDiskNull();
 			checkWin();
 			startTimer();
 		} else if (Number(currentDisk.value) < Number(towerC.childNodes[0].value)) {
 			increaseCounter();
 			towerC.prepend(currentDisk);
+			validPlacementOnTower();
 			setCurrentDiskNull();
 			checkWin();
 			startTimer();
