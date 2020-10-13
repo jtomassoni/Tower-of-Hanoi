@@ -12,14 +12,16 @@
 		<h1>Tower of JT</h1>
 		
 		<div class="introMessage">
-			Move the disks from Tower A to Tower C.  You may only move the <strong>top</strong> disk.</br>  You may only move <strong>one</strong> disk at a time.</br>  <strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>	
+			Move the disks from Tower A to Tower C.  You may only move the <strong>top</strong> disk.<br/>  You may only move <strong>one</strong> disk at a time.<br/>  <strong>Larger disks</strong> can not be stacked on top of <strong>smaller disks.</strong>	
 		</div>
-		<h2>Total Moves: <span id="moveCounter"></span> | Timer: <span id = "timerMinutes">00</span>:<span id="timerSeconds">00</span></span></h2>
-			<div class="gameBoard">
-				<div class="isHidden"><button id="moveToA">Move to Tower A</button><button id="moveToB">Move to Tower B</button><button id="moveToC">Move to Tower C</button></div>
-				<div class="allTowers"><div value = 0 id="towerA"><button class="towers" value = 1 id="smallDisk">smallDisk</button><button class="towers" value=2 id="mediumDisk">mediumDisk</button><button class="towers" value=3 id="largeDisk">largeDisk</button></div><div value = 0 id="towerB"></div><div value = 0 id="towerC"></div></div>
+		<h2>Total Moves:
+			<span id="moveCounter"></span> | Timer: <span id = "timerMinutes">00</span>:<span id="timerSeconds">00</span></h2>
+				<div class="gameBoard">
+				<div class="isHidden"><button id="moveToA">Move to Tower A</button><button id="moveToB">Move to Tower B</button><button id="moveToC">Move to Tower C</button></div><div class="allTowers"><div value = 0 id="towerA"><button class="towers" value = 1 id="smallDisk">smallDisk</button><button class="towers" value=2 id="mediumDisk">mediumDisk</button><button class="towers" value=3 id="largeDisk">largeDisk</button></div><div value = 0 id="towerB"></div><div value = 0 id="towerC"></div></div>
 
-				<button class="resetButton"><h3>Start New Game!</h3></button>
+				<h3>
+					<button class="resetButton">Start New Game!</button>
+				</h3>
 				<div class = playerMessage></div>
 			</div>
 			<footer>

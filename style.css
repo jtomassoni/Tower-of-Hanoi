@@ -1,7 +1,7 @@
 body {
     color: white;
     background-color: black;
-    text-align: center;
+    /* text-align: center; */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .introMessage {
@@ -11,20 +11,17 @@ body {
 #largeDisk {
     min-width: 75%;
     min-height: 25px;
-    display: block;
     color: blue;
 }
 #mediumDisk {
     min-width: 50%;
     min-height: 25px;
-    display: block;
     color: red;
 
 }
 #smallDisk {
     min-width: 25%;
     min-height: 25px;
-    display: block;
     color: green;
 
 }
@@ -36,14 +33,18 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     min-height: 300px;
-    justify-content: center;
 }
+
+.allTowers > div {
+    text-align: center;
+    
+} 
 #moveToA, #moveToB, #moveToC{
     font-size: 1.5em;
     margin: 1vw 1vh;
 }
 .isHidden{
-    display:none;
+    display: none;
 }
 
 footer ul li {
@@ -61,7 +62,7 @@ footer ul li {
     background-color: gray;
     border: 2px solid white;
 }
-
+/* 
 #towers{
     justify-content: center;
-}
+} */
