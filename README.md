@@ -58,7 +58,7 @@ Tower of Hanoi is a puzzle game that requires the player to shift each of any nu
 
 ## Installation
 
-- open a web browser and navigate to [my personal website.](www.jamesetomassoni.com)
+- open a web browser and navigate to [my personal website.](http://www.jamesetomassoni.com)
 - be gentle.
 
 ## Screenshots
