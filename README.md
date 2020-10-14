@@ -96,8 +96,10 @@ Tower of Hanoi is a puzzle game that requires the player to shift each of any nu
 I’d do more preparation to make styling more effective, I had a reasonable understanding of the game coming into it, but I feel like if I spent some time trying to understand how the game operates on the deep level and perhaps even knowing what math could be used, that it would be easier to build.
 
 *What are you most proud of?*
-The fact that it works, that even though I wanted to give up or put my head through a wall at least 47 times, that I found a way to work through those moments.  It plays, throws errors based on different inputs and towers, and doesn’t look totally terrible on mobile.  I write working functions everyday, but sometimes the way they look and feel with how arguments are passed in totally break my brain, so I wrote no functions into this game unless required as a callback.  Once I had it working, I refactored the code into functions, which naturally broke even more things, so I’m proud that the game works, sure, but I’m much more proud that I got it to work using functions, exactly what they’re there for.  
-* What would you do next?  Learn more about the math required here to make this game effective long term.  Good code is code that works, but I worry that some of this wouldn’t scale if we added more disks.
+The fact that it works, that even though I wanted to give up or put my head through a wall at least 47 times, that I found a way to work through those moments.  It plays, throws errors based on different inputs and towers, and doesn’t look totally terrible on mobile.  I write working functions everyday, but sometimes the way they look and feel with how arguments are passed in totally break my brain, so I wrote no functions into this game unless required as a callback.  Once I had it working, I refactored the code into functions, which naturally broke even more things, so I’m proud that the game works, sure, but I’m much more proud that I got it to work using functions, exactly what they’re there for.
+
+*What would you do next?*
+Learn more about the math required here to make this game effective long term.  Good code is code that works, but I worry that some of this wouldn’t scale if we added more disks.
 
 *How did you plan your project?*
 I attempted to go through and think of the steps required, but it was too conceptually big for me, so I just started writing tiny bits of random functions in pseudo as a way to roadmap, starting each new function as needed, grabbing objects and dialing in results.
