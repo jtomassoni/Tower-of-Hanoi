@@ -1,11 +1,12 @@
 body {
-	color: white;
 	background-color: black;
-	text-align: center;
+	color: white;
+	/* text-align: center; */
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #modal {
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.9);
+	color: black;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -17,17 +18,21 @@ body {
 	/*If overflow is clipped, a scroll-bar should be added to see the rest of the content*/
 }
 #modal-textbox {
-	background-color: white;
-	font-size: 6rem;
-	justify-content: center;
-	height: 350px;
-	width: 550px;
-	border-radius: 2px;
+	background-color: grey;
+	height: 50%;
+	width: 50%;
+	border: 3px black solid;
 	margin: 150px auto;
-	box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
-	font-family: sans-serif;
-	padding: 2%;
-	line-height: 120%;
+	box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+	font-family: 'Asul', sans-serif;
+	padding: 20px;
+	text-align: center;
+}
+.blm {
+	font-size: 5rem;
+}
+.modalButton {
+	font-size: 0.5rem;
 }
 .introMessage {
 	border-bottom: 1px dashed;
