@@ -4,6 +4,31 @@ body {
 	text-align: center;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+#modal {
+	background-color: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	/*This puts our modal in front of the body (which has a default z-index setting of `0`*/
+	overflow: auto;
+	/*If overflow is clipped, a scroll-bar should be added to see the rest of the content*/
+}
+#modal-textbox {
+	background-color: white;
+	font-size: 6rem;
+	justify-content: center;
+	height: 350px;
+	width: 550px;
+	border-radius: 2px;
+	margin: 150px auto;
+	box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+	font-family: sans-serif;
+	padding: 2%;
+	line-height: 120%;
+}
 .introMessage {
 	border-bottom: 1px dashed;
 	padding-bottom: 10px;
