@@ -257,3 +257,16 @@ moveToC.addEventListener('click', (event) => {
 resetButton.addEventListener('click', (event) => {
 	resetGame();
 });
+
+//Modal - BLM
+const modal = document.querySelector('#modal');
+const modalButton = document.querySelector('.modalButton');
+
+const closeModal = () =>{
+	;
+}
+
+modalButton.addEventListener("click", () => {
+	modal.style.display = 'none';
+
+})
