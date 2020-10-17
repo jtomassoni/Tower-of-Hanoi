@@ -19,8 +19,8 @@ body {
 }
 #modal-textbox {
 	background-color: grey;
-	height: 50%;
-	width: 50%;
+	height: 50vh;
+	width: 50vw;
 	border: 3px black solid;
 	margin: 150px auto;
 	box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
