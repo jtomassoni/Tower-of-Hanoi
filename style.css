@@ -1,7 +1,7 @@
 body {
 	background-color: black;
 	color: white;
-	/* text-align: center; */
+	text-align: center;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #modal {
@@ -19,7 +19,7 @@ body {
 }
 #modal-textbox {
 	background-color: grey;
-	height: 50vh;
+	/* height: 50vh; */
 	width: 50vw;
 	border: 3px black solid;
 	margin: 150px auto;
@@ -27,12 +27,13 @@ body {
 	font-family: 'Asul', sans-serif;
 	padding: 20px;
 	text-align: center;
+	line-height: 5px;
 }
 .blm {
-	font-size: 5rem;
+	font-size: 15vh;
 }
 .modalButton {
-	font-size: 0.5rem;
+	font-size: 1vh;
 }
 .introMessage {
 	border-bottom: 1px dashed;
