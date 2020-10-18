@@ -4,6 +4,7 @@ body {
 	text-align: center;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+/*the modal takes up the entire screen, with a black background at 90% opacity*/
 #modal {
 	background-color: rgba(0, 0, 0, 0.9);
 	color: black;
@@ -17,10 +18,11 @@ body {
 	overflow: auto;
 	/*If overflow is clipped, a scroll-bar should be added to see the rest of the content*/
 }
+
 #modal-textbox {
 	background-color: grey;
-	/* height: 50vh; */
-	width: 50vw;
+	height: 50%;
+	width: 50%;
 	border: 3px black solid;
 	margin: 150px auto;
 	box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
@@ -28,8 +30,8 @@ body {
 	padding: 20px;
 	line-height: 5px;
 }
-.blm {
-	font-size: 15vh;
+.modal-content {
+	font-size: 5vw;
 }
 .modalButton {
 	font-size: 1vh;

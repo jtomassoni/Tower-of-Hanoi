@@ -21,6 +21,9 @@ let currentDisk = null;
 let counter = 1;
 let towerHeight = 0;
 let countUp = null;
+let modalContent = document.querySelector('.modal-content');
+const modal = document.querySelector('#modal');
+const modalButton = document.querySelector('.modalButton');
 
 //Functions
 //Function for displaying invalid due to improper order
@@ -112,7 +115,9 @@ function setCurrentDiskNull() {
 //Function for evaluating a win AND stopping the timer
 function checkWin() {
 	if (towerC.childElementCount === 3) {
-		playerMessage.innerHTML = 'YOU WON!!!! LFG';
+		modal.style.display = 'inline';
+		playerMessage.innerHTML = '';
+		modalContent.innerHTML = 'YOU WON!!!! LFG';
 		clearInterval(countUp); //stops the timer.
 	}
 }
@@ -259,14 +264,9 @@ resetButton.addEventListener('click', (event) => {
 });
 
 //Modal - BLM
-const modal = document.querySelector('#modal');
-const modalButton = document.querySelector('.modalButton');
 
-const closeModal = () =>{
-	;
-}
+const closeModal = () => {};
 
-modalButton.addEventListener("click", () => {
+modalButton.addEventListener('click', () => {
 	modal.style.display = 'none';
-
-})
+});
